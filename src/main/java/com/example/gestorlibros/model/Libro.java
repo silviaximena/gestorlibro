@@ -15,21 +15,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity                 // Esta clase es una tabla en la base de datos
-@Table(name = "LIBRO")  // Nombre de la tabla
-@Getter                 // Lombok crea todos los getters (getId, getTitulo...)
-@Setter                 // Lombok crea todos los setters (setId, setTitulo...)
-@NoArgsConstructor      // Constructor vacío: JPA lo necesita obligatoriamente
-@AllArgsConstructor     // Constructor con todos los atributos
+@Entity                 
+@Table(name = "LIBRO") 
+@Getter                
+@Setter                
+@NoArgsConstructor      
+@AllArgsConstructor     
 @Builder  
 public class Libro {
-   @Id                                                  // Llave primaria de la tabla
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // El id se genera solo (1, 2, 3...)
+   @Id                                              
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  
     private Long id;
 
-    @NotBlank(message = "El título es obligatorio")                       // No puede venir vacío
-    @Size(max = 150, message = "El título no puede superar 150 caracteres") // Largo máximo
-    @Column(nullable = false, length = 150)                                // Columna obligatoria en la tabla
+    @NotBlank(message = "El título es obligatorio")                      
+    @Size(max = 150, message = "El título no puede superar 150 caracteres") 
+    @Column(nullable = false, length = 150)                                
     private String titulo;
 
     @NotBlank(message = "El autor es obligatorio")
@@ -37,8 +37,8 @@ public class Libro {
     @Column(nullable = false, length = 100)
     private String autor;
 
-    @NotNull(message = "El stock es obligatorio")      // No puede venir sin valor
-    @Min(value = 0, message = "El stock no puede ser negativo") // Mínimo 0
+    @NotNull(message = "El stock es obligatorio")      
+    @Min(value = 0, message = "El stock no puede ser negativo") 
     private Integer stock;
 
 }
